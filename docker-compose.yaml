@@ -1,0 +1,55 @@
+services:
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - pong-data
+
+  frontend:
+    container_name: pong-frontend
+    image: pong-front:latest
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${PWD}/frontend/src:/app/src:ro
+      - ${PWD}/frontend/public:/app/public:ro
+    env_file:
+      - "./frontend/.env"  # Specify the path to frontend.env
+    restart: always
+
+  backend:
+    container_name: pong-backend
+    image: pong-back:latest
+    build: ./backend
+    env_file:
+      - "./.env"
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - pong-data
+    restart: always
+
+  database:
+    env_file:
+      - "./.env"
+    container_name: pong-database
+    image: postgres:latest
+    ports: # Example of using an environment variable for external mapping
+      - "5432"
+    networks:
+      - pong-data
+    restart: always
+
+networks:
+
+  pong-data:
+    driver: bridge
+    name: pong-data

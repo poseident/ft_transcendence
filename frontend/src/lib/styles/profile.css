@@ -1,0 +1,111 @@
+/* styles.css */
+
+:root {
+    --bg:         #112;
+    --txt-base:   #3ca;
+    --txt-hover:  #dff;
+    --btn-border-base: #f44;
+    --btn-border-hover: #fa6;
+    --btn-bg-1: rgba(255,170,102,0.05);
+    --btn-bg-2: rgba(255,170,102,0.15);
+    --btn-bg-active-1: rgba(200,200,200,0.05);
+    --btn-bg-active-2: rgba(200,200,200,0.15);
+  }
+
+.videobg {
+    position: absolute;
+    display: block;
+    grid-area: stack;
+    height: 110vh;
+    mix-blend-mode: hard-light;
+    width: 110vw;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .menugrid {
+    align-items: start;
+    display: grid;
+    grid-template-areas: "stack";
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+  }
+
+  ul {
+    max-height: 300px; 
+    overflow-y: auto;
+  }
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(75, 75, 250, 0.3);
+    border-radius: 3px;
+}
+.center h1{
+  text-align:center;
+  color:white;
+  font-family: 'Source Code Pro', monospace;
+  text-transform:uppercase;
+}
+
+.match-item {
+    list-style-type: none;
+    background-image: linear-gradient(to right, #11e82e 0%, #039e17 50%, #b02502 50%, #c92800 100%);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    font-weight: bold;
+    margin-right: 10px;
+    color: black;
+}
+
+.score {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.score-separator {
+    margin: 0 5px; /* Ajoute une marge de 5px autour du séparateur */
+    text-align: center;
+}
+
+.player1 {
+    color: rgb(0, 0, 0); /* Couleur verte pour le score du joueur 1 */
+}
+
+.player2 {
+    color: rgb(0, 0, 0); /* Couleur rouge pour le score du joueur 2 */
+}
+
+.progress-container {
+  width: 200px; /* Largeur désirée */
+  height: 15px; /* Hauteur désirée */
+  border-radius: 4px;
+  overflow: hidden; /* Pour empêcher le débordement des éléments enfants */
+  transform: translateX(56%);
+}
+
+.xp-progress {
+  width: 100%; /* La barre de progression occupe toute la largeur du conteneur */
+  height: 100%;
+  background-color: rgba(75, 75, 250, 0.3);
+  border-radius: 4px;
+}
